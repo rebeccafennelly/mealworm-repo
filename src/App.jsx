@@ -4,6 +4,8 @@ import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
 import NavBar from "./components/NavBar";
 
+import recipes from "./data/recipes";
+
 class App extends Component {
   render() {
     return (
@@ -12,7 +14,7 @@ class App extends Component {
           <NavBar />
         </section>
         <section className={styles.content}>
-          <CardFront />
+          <CardFront recipe={recipes[0]} />
           <CardBack />
         </section>
       </>
