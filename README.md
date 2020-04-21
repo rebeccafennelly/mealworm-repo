@@ -1,16 +1,13 @@
 # CODE ALONG NOTES
 
-Create a static CardFront component
+Edit the CardFront component so that it takes in a recipe object as props.
 
 ## STEPS
 
-- Clear out all of the beginning React App materials (jsx, logos etc.)
-- Create a components/CardFront directory containing .jsx .module.scss index.js and .module.scss
-- Create the markup in the .jsx file
-- Import & export from the index.js
-- Import and use the CardFront in the App.jsx
-- Style the CardFront
-- Change the favicon and title in the /public directory
+- Edit the CardFront component so that it takes in a recipe Object as props
+- Destructure the recipe object in the render method
+- Replace hard coded CardFont data with recipe info passed in as props
+- Pass recipes[0] in as props from App.jsx
 
 ## Challenge branch
 
