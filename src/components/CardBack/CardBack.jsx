@@ -4,21 +4,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import List from "../List";
 
 class CardBack extends Component {
+  state = {
+    isFav: false,
+  };
+
   shortenInstructions = (instructions) =>
     instructions.length < 300
       ? instructions
       : instructions.substring(0, 200) + "...";
 
-  // Options for heart icon are:
-  // SOLID HEART: ["fas", "heart"]
-  // OPEN HEART: ["far", "heart"]
+  toggleFav = (e) => {
+    e.stopPropagation();
+    this.setState({ isFav: !this.state.isFav });
+  };
 
   render() {
     const { ingredients, strMeal, strInstructions } = this.props.recipe;
+
+    const heartIcon = this.state.isFav ? ["fas", "heart"] : ["far", "heart"];
+
     return (
       <section className={styles.cardBack}>
-        <span className={styles.heart}>
-          <FontAwesomeIcon icon={["fas", "heart"]} />
+        <span className={styles.heart} onClick={this.toggleFav}>
+          <FontAwesomeIcon icon={heartIcon} />
         </span>
         <h2>{strMeal}</h2>
         <h3>Instructions</h3>
