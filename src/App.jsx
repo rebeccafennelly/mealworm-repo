@@ -7,7 +7,12 @@ import NavBar from "./components/NavBar";
 import recipes from "./data/recipes";
 
 class App extends Component {
-  getCardFrontJsx = (recipe) => <CardFront recipe={recipe} />;
+  getCardJsx = (recipe) => (
+    <>
+      <CardFront recipe={recipe} />
+      <CardBack recipe={recipe} />
+    </>
+  );
 
   render() {
     return (
@@ -16,8 +21,7 @@ class App extends Component {
           <NavBar />
         </section>
         <section className={styles.content}>
-          {recipes.map(this.getCardFrontJsx)}
-          <CardBack recipe={recipes[1]} />
+          {recipes.map(this.getCardJsx)}
         </section>
       </>
     );
