@@ -9,10 +9,10 @@ import recipes from "./data/recipes";
 
 class App extends Component {
   getCardJsx = (recipe) => (
-    <>
+    <React.Fragment key={recipe}>
       <CardFront recipe={recipe} />
       <CardBack recipe={recipe} />
-    </>
+    </React.Fragment>
   );
 
   render() {

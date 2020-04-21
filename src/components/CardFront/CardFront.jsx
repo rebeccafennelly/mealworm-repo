@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./CardFront.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class CardFront extends Component {
   render() {
@@ -17,6 +18,7 @@ class CardFront extends Component {
         <section className={styles.recipeDetails}>
           <h2>{strMeal}</h2>
           <p>
+            <FontAwesomeIcon icon="globe" />
             <span>{strArea}</span>
           </p>
           <div className={styles.links}>
@@ -24,7 +26,10 @@ class CardFront extends Component {
               Full recipe
             </a>
             <a href={strYoutube} target="_blank" rel="noopener noreferrer">
-              Youtube
+              <FontAwesomeIcon
+                icon={["fab", "youtube"]}
+                className={styles.youtube}
+              />
             </a>
           </div>
         </section>

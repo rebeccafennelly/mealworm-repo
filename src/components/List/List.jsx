@@ -9,8 +9,8 @@ const List = (props) => {
 
   return (
     <ul>
-      {props.items.map((item) => (
-        <li onClick={itemFunction}>
+      {props.items.map((item, index) => (
+        <li key={item + index} onClick={itemFunction}>
           <span>
             <FontAwesomeIcon icon="arrow-right"></FontAwesomeIcon>
           </span>
