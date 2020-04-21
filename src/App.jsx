@@ -1,18 +1,11 @@
 import React, { Component } from "react";
 import styles from "./App.module.scss";
-import Card from "./components/Card";
 import NavBar from "./components/NavBar";
 
 import library from "./data/fa-library";
-import recipes from "./data/recipes";
+import Routes from "./containers/Routes/Routes";
 
 class App extends Component {
-  getCardJsx = (recipe) => (
-    <div className={styles.card} key={recipe.idMeal}>
-      <Card recipe={recipe} />
-    </div>
-  );
-
   render() {
     return (
       <>
@@ -20,7 +13,7 @@ class App extends Component {
           <NavBar />
         </section>
         <section className={styles.content}>
-          {recipes.map(this.getCardJsx)}
+          <Routes />
         </section>
       </>
     );
