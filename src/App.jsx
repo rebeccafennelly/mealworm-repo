@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styles from "./App.module.scss";
-import CardFront from "./components/CardFront";
-import CardBack from "./components/CardBack";
+import Card from "./components/Card";
 import NavBar from "./components/NavBar";
 
 import library from "./data/fa-library";
@@ -9,10 +8,9 @@ import recipes from "./data/recipes";
 
 class App extends Component {
   getCardJsx = (recipe) => (
-    <React.Fragment key={recipe}>
-      <CardFront recipe={recipe} />
-      <CardBack recipe={recipe} />
-    </React.Fragment>
+    <div className={styles.card}>
+      <Card recipe={recipe} key={recipe.idMeal} />
+    </div>
   );
 
   render() {
