@@ -8,6 +8,13 @@ import library from "./data/fa-library";
 import recipes from "./data/recipes";
 
 class App extends Component {
+  getCardJsx = (recipe) => (
+    <>
+      <CardFront recipe={recipe} />
+      <CardBack recipe={recipe} />
+    </>
+  );
+
   render() {
     return (
       <>
@@ -15,8 +22,7 @@ class App extends Component {
           <NavBar />
         </section>
         <section className={styles.content}>
-          <CardFront recipe={recipes[1]} />
-          <CardBack recipe={recipes[1]} />
+          {recipes.map(this.getCardJsx)}
         </section>
       </>
     );
