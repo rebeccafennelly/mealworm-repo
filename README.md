@@ -1,12 +1,15 @@
-# CHALLENGE NOTES
+# CODE ALONG NOTES
 
-- Edit the CardBack component so that it takes in a recipe object as props and displays the information
-- Pass recipes[1] into the CardBack component from App.jsx
+Add font awesome library and relevant icons to our React app
 
-## Solution screenshot
+## STEPS
 
-![solution](./src/assets/solution.png)
+- Go to the docs at https://www.npmjs.com/package/@fortawesome/react-fontawesome
+- Add relevant packages as dependencies
+- Create library in data/fa-library.js
+- Create SearchBar component and use the search icon next to the input field
+- Add solid heart icon to CardBack (showing how solid and hollow versions of one icon are implemented)
 
-## Completed branch
+## Challenge branch
 
-props-challenge-solution
+font-awesome-challenge
