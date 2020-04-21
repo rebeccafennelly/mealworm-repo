@@ -1,14 +1,12 @@
-# CODE ALONG NOTES
+# CHALLENGE NOTES
 
-Edit the CardFront component so that it takes in a recipe object as props.
+- Edit the CardBack component so that it takes in a recipe object as props and displays the information
+- Pass recipes[0] into the CardBack component from App.jsx
 
-## STEPS
+## Solution screenshot
 
-- Edit the CardFront component so that it takes in a recipe Object as props
-- Destructure the recipe object in the render method
-- Replace hard coded CardFont data with recipe info passed in as props
-- Pass recipes[0] in as props from App.jsx
+![solution](./src/assets/solution.png)
 
-## Challenge branch
+## Completed branch
 
-props-challenge
+props-challenge-solution
