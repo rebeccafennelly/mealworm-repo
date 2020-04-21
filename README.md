@@ -1,21 +1,16 @@
-# CHALLENGE NOTES
+# CODE ALONG NOTES
 
-- Add state and setState logic into the SearchBar component (isOpen)
-  - Add conditional rendering so the input field either displays or doesn't based on isOpen === true
-- Add state and setState logic into the CardBack component (isFav)
-  - Add logic so the solid/hollow heart swap when you click on them (the icons are commented out in the file)
+Add routing to Mealworm. Should be able to route between dashboard, cookbook and 404 page
 
-## EXTENSION
+## STEPS
 
-- Stop the card from flipping when you click on the heart (will require troubleshooting - research how to stop event propagation)
+- Create Dashboard, Cookbook and Routes containers and a NotFound component
+- Create the relevant paths and default routes in the Routes.jx
+- Move map logic and styles for Card components from App.jsx into Dashboard.jsx
+- Move Routes into the .content section in App.jsx
+- Add Links to the cookbook icon and MealWorm logo
+- Once routing is working create a CardList component that takes recipes as props and implement in Dashboard
 
-## Solution screenshot
+## Challenge branch
 
-![solution-closed](./src/assets/solution-closed.png)
-![solution-open](./src/assets/solution-open.png)
-![solution-filled](./src/assets/solution-filled.png)
-![solution-empty](./src/assets/solution-empty.png)
-
-## Completed branch
-
-state-challenge-solution
+routes-challenge
