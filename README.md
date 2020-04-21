@@ -7,9 +7,8 @@
 
 ## Solution screenshot
 
-<!--
 ![solution](./src/assets/solution.png)
-![extension](./src/assets/extension.png) -->
+![extension](./src/assets/extension.png)
 
 ## Completed branch
 
