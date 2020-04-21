@@ -13,4 +13,4 @@
 
 ## Completed branch
 
-map-data-solution
+font-awesome-challenge-solution
