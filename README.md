@@ -1,13 +1,16 @@
-# CODE ALONG NOTES
+# CHALLENGE NOTES
 
-Map over data to produce both the list component and CardFront components
+- In App.jsx map over the recipes data and produce one CardBack component for each object of data (see screenshot)
 
-## STEPS
+## EXTENSION
 
-- In App.jsx map over the recipes to produce one CardFront for each object of data
-- Explain the unique key error in the console
-- Create the List component and have it map over an array of ingredients passed in as props
+- Find a way to produce alternating CardFront and CardBack components (see second screenshot)
 
-## Challenge branch
+## Solution screenshot
 
-map-data-challenge
+![solution](./src/assets/solution.png)
+![solution](./src/assets/solution.png)
+
+## Completed branch
+
+map-data-solution

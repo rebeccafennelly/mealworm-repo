@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./CardBack.module.scss";
+import List from "../List";
 
 class CardBack extends Component {
   shortenInstructions = (instructions) =>
@@ -15,6 +16,9 @@ class CardBack extends Component {
         <h3>Instructions</h3>
         <p>{this.shortenInstructions(strInstructions)}</p>
         <h3>Ingredients</h3>
+        <div className={styles.list}>
+          <List items={ingredients} />
+        </div>
       </section>
     );
   }
