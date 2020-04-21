@@ -1,7 +1,7 @@
 # CHALLENGE NOTES
 
 - Edit the CardBack component so that it takes in a recipe object as props and displays the information
-- Pass recipes[0] into the CardBack component from App.jsx
+- Pass recipes[1] into the CardBack component from App.jsx
 
 ## Solution screenshot
 

@@ -14,8 +14,8 @@ class App extends Component {
           <NavBar />
         </section>
         <section className={styles.content}>
-          <CardFront recipe={recipes[0]} />
-          <CardBack />
+          <CardFront recipe={recipes[1]} />
+          <CardBack recipe={recipes[1]} />
         </section>
       </>
     );
