@@ -13,7 +13,7 @@ class NavBar extends Component {
           <h1>MealWorm</h1>
         </div>
         <div className={styles.searchPanel}>
-          <SearchBar />
+          <SearchBar placeholder="Search for recipes..." />
           <span className={styles.faStyles}>
             <FontAwesomeIcon icon="book-open" />
           </span>

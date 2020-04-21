@@ -8,8 +8,8 @@ import recipes from "./data/recipes";
 
 class App extends Component {
   getCardJsx = (recipe) => (
-    <div className={styles.card}>
-      <Card recipe={recipe} key={recipe.idMeal} />
+    <div className={styles.card} key={recipe.idMeal}>
+      <Card recipe={recipe} />
     </div>
   );
 
