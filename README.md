@@ -15,7 +15,9 @@ Create a counter with a reusable button component. In one place the button shoul
 
 ## Solution screenshot
 
-![solution](./src/assets/solution.png)
+![solution](./src/assets/solution-one.png)
+![solution](./src/assets/solution-two.png)
+![solution](./src/assets/solution-three.png)
 
 ## Completed branch
 
