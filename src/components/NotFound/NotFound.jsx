@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import styles from "./NotFound.module.scss";
+import FeedbackPanel from "../FeedbackPanel/FeedbackPanel";
 
 class NotFound extends Component {
   render() {
     return (
       <section className={styles.background}>
-        <div className={styles.feedback}>
-          <h2>Page not found</h2>
-          <p>Unfortunately we couldn't find that page</p>
-        </div>
+        <FeedbackPanel
+          header="Page not found"
+          text="Unfortunately this page is not a part of the MealWorm app"
+        />
       </section>
     );
   }
