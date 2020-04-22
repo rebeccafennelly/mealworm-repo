@@ -1,16 +1,6 @@
 @import "../../variables.scss";
 
-.background {
+.notFound {
   height: calc(100vh - 75px);
   width: 100%;
-  background-image: linear-gradient(
-      rgba(202, 199, 199, 0.3),
-      rgba(202, 199, 199, 0.3)
-    ),
-    url("../../assets/fruits.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: red;
-  padding: $base-spacing * 4;
 }

@@ -5,12 +5,12 @@ import FeedbackPanel from "../FeedbackPanel/FeedbackPanel";
 class NotFound extends Component {
   render() {
     return (
-      <section className={styles.background}>
+      <div className={styles.notFound}>
         <FeedbackPanel
           header="Page not found"
           text="Unfortunately this page is not a part of the MealWorm app"
         />
-      </section>
+      </div>
     );
   }
 }

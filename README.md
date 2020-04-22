@@ -11,10 +11,9 @@ Show functions being passed down as props. Implement the logic to search through
 
 ### Search functionality
 
-- In Dashboard use the feedback panel to nudge the user to search for recipes
 - Add state & setState logic into App.jsx for searchText
 - Pass the setState from App into NavBar and then into SearchBar so when the user types into the input field it updates the state in App.jsx (check react devtools)
-- Pass the searchText down into Dashboard and use to filter the recipes in recipes.js
+- Pass the searchText down into Routes, then Dashboard and use to filter the recipes in recipes.js
 - If there are no matches show the feedback panel else show the matching recipes
 
 ### Adding to favourites
