@@ -5,9 +5,10 @@ import Card from "../Card";
 class CardList extends Component {
   getCardJsx = (recipe) => (
     <div className={styles.card} key={recipe.idMeal}>
-      <Card recipe={recipe} />
+      <Card recipe={recipe} toggleFav={this.props.toggleFav} />
     </div>
   );
+
   render() {
     const { recipes } = this.props;
     return (

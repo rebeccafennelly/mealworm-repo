@@ -10,11 +10,15 @@ class DashBoard extends Component {
     return recipeName.includes(this.props.searchText.toLowerCase());
   };
 
+  toggleFav = (recipe) => {
+    recipe.isFav = !recipe.isFav;
+  };
+
   render() {
     const matchingRecipes = recipes.filter(this.checkRecipeName);
 
     const contentJsx = matchingRecipes.length ? (
-      <CardList recipes={matchingRecipes} />
+      <CardList recipes={matchingRecipes} toggleFav={this.toggleFav} />
     ) : (
       <FeedbackPanel
         header="No matches"

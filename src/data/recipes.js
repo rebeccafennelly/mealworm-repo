@@ -1,5 +1,6 @@
 const recipes = [
     {
+        isFav: false,
         "idMeal": "52814",
         "strMeal": "Thai Green Curry",
         "strDrinkAlternate": null,
@@ -14,6 +15,7 @@ const recipes = [
         "dateModified": null
     },
     {
+        isFav: false,
         "idMeal": "52854",
         "strMeal": "Pancakes",
         "strDrinkAlternate": null,
@@ -48,6 +50,7 @@ const recipes = [
         "dateModified": null
     },
     {
+        isFav: false,
         "idMeal": "52987",
         "strMeal": "Lasagna Sandwiches",
         "strDrinkAlternate": null,
@@ -94,6 +97,7 @@ const recipes = [
         "dateModified": null
     },
     {
+        isFav: false,
         "idMeal": "52829",
         "strMeal": "Grilled Mac and Cheese Sandwich",
         "strDrinkAlternate": null,
@@ -140,6 +144,7 @@ const recipes = [
         "dateModified": null
     },
     {
+        isFav: false,
         "idMeal": "52901",
         "strMeal": "Rock Cakes",
         "strDrinkAlternate": null,
@@ -174,6 +179,7 @@ const recipes = [
         "dateModified": null
     },
     {
+        isFav: false,
         "idMeal": "52868",
         "strMeal": "Kidney Bean Curry",
         "strDrinkAlternate": null,
@@ -188,6 +194,7 @@ const recipes = [
         "dateModified": null
     },
     {
+        isFav: false,
         "idMeal": "52820",
         "strMeal": "Katsu Chicken curry",
         "strDrinkAlternate": null,
@@ -217,6 +224,7 @@ const recipes = [
         "dateModified": null
     },
     {
+        isFav: false,
         "idMeal": "52827",
         "strMeal": "Massaman Beef curry",
         "strDrinkAlternate": null,
@@ -243,6 +251,7 @@ const recipes = [
         "dateModified": null
     },
     {
+        isFav: false,
         "idMeal": "52851",
         "strMeal": "Nutty Chicken Curry",
         "strDrinkAlternate": null,

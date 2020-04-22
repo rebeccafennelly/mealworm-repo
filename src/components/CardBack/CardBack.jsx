@@ -5,7 +5,7 @@ import List from "../List";
 
 class CardBack extends Component {
   state = {
-    isFav: false,
+    isFav: this.props.recipe.isFav,
   };
 
   shortenInstructions = (instructions) =>
@@ -15,6 +15,7 @@ class CardBack extends Component {
 
   toggleFav = (e) => {
     e.stopPropagation();
+    this.props.toggleFav(this.props.recipe);
     this.setState({ isFav: !this.state.isFav });
   };
 

@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import styles from "./Cookbook.module.scss";
+import recipes from "../../data/recipes";
+import FeedbackPanel from "../../components/FeedbackPanel/FeedbackPanel";
+import CardList from "../../components/CardList/CardList";
 
 class Cookbook extends Component {
-  state = {};
   render() {
-    return <p>Cookbook works</p>;
+    const favourites = recipes.filter((recipe) => recipe.isFav);
+
+    const contentJsx = favourites.length ? (
+      <CardList recipes={favourites} />
+    ) : (
+      <FeedbackPanel
+        header="No favourites"
+        text="Try returning to dahsboard and searching for your meal of choice"
+      />
+    );
+
+    return <section className={styles.cookbook}>{contentJsx}</section>;
   }
 }
 
