@@ -12,10 +12,14 @@ class SearchBar extends Component {
   };
 
   render() {
-    const { placeholder } = this.props;
+    const { placeholder, updateSearchText } = this.props;
 
     const input = this.state.isOpen ? (
-      <input type="text" placeholder={placeholder} />
+      <input
+        type="text"
+        placeholder={placeholder}
+        onInput={(e) => updateSearchText(e.target.value)}
+      />
     ) : null;
 
     return (

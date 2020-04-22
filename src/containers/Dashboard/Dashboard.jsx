@@ -5,7 +5,12 @@ import CardList from "../../components/CardList/CardList";
 
 class DashBoard extends Component {
   render() {
-    return <CardList recipes={recipes} />;
+    const matchingRecipes = recipes.filter((recipe) => {
+      const recipeName = recipe.strMeal.toLowerCase();
+      return recipeName.includes(this.props.searchText.toLowerCase());
+    });
+
+    return <CardList recipes={matchingRecipes} />;
   }
 }
 

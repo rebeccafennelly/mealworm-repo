@@ -6,14 +6,22 @@ import library from "./data/fa-library";
 import Routes from "./containers/Routes/Routes";
 
 class App extends Component {
+  state = {
+    searchText: "",
+  };
+
+  updateSearchText = (searchText) => {
+    this.setState({ searchText });
+  };
+
   render() {
     return (
       <>
         <section className={styles.nav}>
-          <NavBar />
+          <NavBar updateSearchText={this.updateSearchText} />
         </section>
         <section className={styles.content}>
-          <Routes />
+          <Routes searchText={this.state.searchText} />
         </section>
       </>
     );
