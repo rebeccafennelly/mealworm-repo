@@ -8,7 +8,9 @@ Implement the logic to call themealdb api when a user types into the searchbar a
 - Create the fetchRecipes method in App.jsx that updates the state when resolved
 - Returned data is not in the desired format (ingredients are listed as individual strings) and must be cleaned
   - Create a method called cleanRecipe and map through the fetch result before updating state
-- Edit SearchBar component so parent function is only triggered when the user hits the Enter key (this is more efficient as API not called on every key hit)
+  - cleanRecipe will add isFav: false to each recipe
+  - cleanRecipe will also create an ingredients array using getIngredients method (see challenge branch for referrence)
+- Remove original logic in App and Dashboard to filter data file recipes by searchText
 
 ### N.B.
 

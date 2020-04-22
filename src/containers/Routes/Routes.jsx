@@ -7,10 +7,10 @@ import NotFound from "../../components/NotFound";
 
 class Routes extends Component {
   render() {
-    const { searchText } = this.props;
+    const { recipes } = this.props;
     return (
       <Router>
-        <Dashboard path="/" searchText={searchText} />
+        <Dashboard path="/" recipes={recipes} />
         <Cookbook path="cookbook" />
         <NotFound default />
       </Router>

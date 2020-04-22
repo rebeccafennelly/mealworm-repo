@@ -7,21 +7,48 @@ import Routes from "./containers/Routes/Routes";
 
 class App extends Component {
   state = {
-    searchText: "",
+    recipes: [],
   };
 
-  updateSearchText = (searchText) => {
-    this.setState({ searchText });
+  getIngredients = (recipe) => {
+    let ingredients = [];
+    Object.keys(recipe).forEach((key) => {
+      if (key.includes("Ingr") && recipe[key]) {
+        ingredients.push(recipe[key]);
+      }
+    });
+    return ingredients;
+  };
+
+  cleanRecipeData = (recipe) => {
+    return {
+      ...recipe,
+      ingredients: this.getIngredients(recipe),
+      isFav: false,
+    };
+  };
+
+  grabRecipes = (searchTerm) => {
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`)
+      .then((res) => res.json())
+      .then((res) => {
+        const cleanRecipes = res.meals.map(this.cleanRecipeData);
+
+        this.setState({ recipes: cleanRecipes });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   render() {
     return (
       <>
         <section className={styles.nav}>
-          <NavBar updateSearchText={this.updateSearchText} />
+          <NavBar updateSearchText={this.grabRecipes} />
         </section>
         <section className={styles.content}>
-          <Routes searchText={this.state.searchText} />
+          <Routes recipes={this.state.recipes} />
         </section>
       </>
     );

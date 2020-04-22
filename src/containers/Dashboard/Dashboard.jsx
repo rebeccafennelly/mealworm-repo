@@ -5,24 +5,19 @@ import CardList from "../../components/CardList/CardList";
 import FeedbackPanel from "../../components/FeedbackPanel/FeedbackPanel";
 
 class DashBoard extends Component {
-  checkRecipeName = (recipe) => {
-    const recipeName = recipe.strMeal.toLowerCase();
-    return recipeName.includes(this.props.searchText.toLowerCase());
-  };
-
   toggleFav = (recipe) => {
     recipe.isFav = !recipe.isFav;
   };
 
   render() {
-    const matchingRecipes = recipes.filter(this.checkRecipeName);
+    const { recipes } = this.props;
 
-    const contentJsx = matchingRecipes.length ? (
-      <CardList recipes={matchingRecipes} toggleFav={this.toggleFav} />
+    const contentJsx = recipes.length ? (
+      <CardList recipes={recipes} toggleFav={this.toggleFav} />
     ) : (
       <FeedbackPanel
-        header="No matches"
-        text="None of our recipes matched that search"
+        header="No recipes"
+        text="Type into the searchbar to find your desired meal"
       />
     );
 
