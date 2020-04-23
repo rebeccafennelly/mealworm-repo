@@ -1,16 +1,18 @@
 import React from "react";
-import { CardFront } from "./CardFront";
-import { render } from '@testing-library/react';
-import { mount } from "enzyme";
+import CardFront from "./CardFront";
+import { shallow } from "enzyme";
+import recipes from "../../data/recipes";
 
 describe("CardFront tests", () => {
   let component;
+  let testRecipe;
 
   beforeEach(() => {
-    component = mount(<CardFront />);
+    testRecipe = recipes[0];
+    component = shallow(<CardFront recipe={testRecipe} />);
   })
 
   it("should render", () => {
-    expect(render(<CardFront />)).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });

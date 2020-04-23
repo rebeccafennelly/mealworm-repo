@@ -1,24 +1,23 @@
-﻿import React from "react";
+﻿import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./List.module.scss";
 
-const List = (props) => {
-  const itemFunction = props.selectItem
-    ? (item) => props.selectItem(item)
-    : null;
-
-  return (
-    <ul>
-      {props.items.map((item, index) => (
-        <li key={item + index} onClick={itemFunction}>
-          <span>
-            <FontAwesomeIcon icon="arrow-right"></FontAwesomeIcon>
-          </span>
-          {item}
-        </li>
-      ))}
-    </ul>
-  );
-};
+class List extends Component {
+  render() {
+    const { items } = this.props;
+    return (
+      <ul>
+        {items.map((item, index) => (
+          <li key={item + index}>
+            <span>
+              <FontAwesomeIcon icon="arrow-right"></FontAwesomeIcon>
+            </span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+}
 
 export default List;
