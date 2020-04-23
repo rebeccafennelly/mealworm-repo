@@ -15,5 +15,6 @@ Demonstrate unit testing with Jest and Enzyme in a variety of places around the 
 
 - Test the feedback panel correctly displays the information passed in as props
 - Test the searchbar open/close functinality
+- Test the href of the a tags in the CardFront component (will require enzyme functions we have not covered together)
 
 unit-testing-challenge

@@ -15,4 +15,13 @@ describe("CardFront tests", () => {
   it("should render", () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the correct name based on the recipe passed in as props', () => {
+    const mealTitle = testRecipe.strMeal;
+    expect(component.text()).toContain(mealTitle);
+  })
+
+  it("should render recipe meal thumb on page", () => {
+    expect(component.find('img').prop('src')).toBe(testRecipe.strMealThumb);
+  });
 });
