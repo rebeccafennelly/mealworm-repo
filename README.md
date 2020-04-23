@@ -1,23 +1,15 @@
-# CHALLENGE NOTES
+# CODE ALONG NOTES
 
-## React sandbox repo
+Demonstrate unit testing with Jest and Enzyme in a variety of places around the MealWorm app so the trainees can see a number of different tests & testing functions.
 
-Create a fetch that calls the catfacts.ninja API and displays the returned data in any way you choose
+## STEPS
 
-- Read the docs here: https://catfact.ninja/docs
-- You will need to have a good read of the docs to find out how to return mroe than one fact at a time
-- Test the API in postman before trying to call it in react
-- The MVP is to get 10 facts appearing on the page as sentences
+- Add Enzyme packages into dev dependencies ()
+- Test that each component renders
+- Test CardFront renders information from props as expected (img has correct src and name etc is rendered on page)
+- Test the Card Flip (State change and conditional styling)
+- Test the SearchBar is reusable and works as intended (calls mocked parent function with outputed string)
 
-### Extension
+## Challenge branch
 
-- GET CREATIVE! Display the returned facts in a creative way that actually makes this interesting to the user
-- Allow the user to input how many they want to see at any one time
-
-## Solution screenshot
-
-![solution](./src/assets/solution.png)
-
-## Completed branch
-
-components-challenge-solution
+unit-testing-challenge
