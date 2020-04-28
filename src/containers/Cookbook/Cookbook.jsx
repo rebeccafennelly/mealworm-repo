@@ -3,22 +3,42 @@ import styles from "./Cookbook.module.scss";
 import recipes from "../../data/recipes";
 import FeedbackPanel from "../../components/FeedbackPanel/FeedbackPanel";
 import CardList from "../../components/CardList/CardList";
+import { firestore } from "../../firebase";
 
 class Cookbook extends Component {
   state = {
-    favourites: recipes.filter((recipe) => recipe.isFav),
+    favourites: [],
   };
 
-  removeFromFav = (recipe) => {
-    recipe.isFav = false;
-    this.setState({ favourites: recipes.filter((recipe) => recipe.isFav) });
+  componentDidMount() {
+    this.setCookbookState();
+  }
+
+  setCookbookState = () => {
+    firestore
+      .collection("recipes")
+      .get()
+      .then((querySnapshot) => {
+        const favourites = querySnapshot.docs.map((doc) => doc.data());
+        this.setState({ favourites });
+      })
+      .catch((err) => console.log(err));
+  };
+
+  removeFromCookbook = (recipe) => {
+    firestore
+      .collection("recipes")
+      .doc(recipe.id)
+      .delete()
+      .then(this.setCookbookState)
+      .catch((err) => console.log(err));
   };
 
   render() {
     const contentJsx = this.state.favourites.length ? (
       <CardList
         recipes={this.state.favourites}
-        toggleFav={this.removeFromFav}
+        toggleFav={this.removeFromCookbook}
       />
     ) : (
       <FeedbackPanel

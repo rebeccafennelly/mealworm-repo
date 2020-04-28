@@ -4,7 +4,7 @@ import Card from "../Card";
 
 class CardList extends Component {
   getCardJsx = (recipe) => (
-    <div className={styles.card} key={recipe.idMeal}>
+    <div className={styles.card} key={recipe.id}>
       <Card recipe={recipe} toggleFav={this.props.toggleFav} />
     </div>
   );

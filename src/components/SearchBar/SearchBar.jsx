@@ -19,7 +19,7 @@ class SearchBar extends Component {
         type="text"
         placeholder={placeholder}
         onInput={(e) => updateSearchText(e.target.value)}
-        autofocus="true"
+        autoFocus={true}
       />
     ) : null;
 

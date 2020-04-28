@@ -10,6 +10,24 @@ class App extends Component {
     recipes: [],
   };
 
+  cleanRecipe = (recipe) => {
+    const cleanedRecipe = {
+      id: recipe.idMeal,
+      name: recipe.strMeal,
+      category: recipe.strCategory,
+      area: recipe.strArea,
+      instructions: recipe.strInstructions,
+      thumbnail: recipe.strMealThumb,
+      tags: recipe.strTags,
+      ingredients: this.getIngredients(recipe),
+      source: recipe.strSource,
+      dateCreated: new Date().toUTCString(),
+      dateModified: null,
+      youtube: recipe.strYoutube,
+    };
+    return cleanedRecipe;
+  };
+
   getIngredients = (recipe) => {
     let ingredients = [];
     Object.keys(recipe).forEach((key) => {
@@ -20,20 +38,11 @@ class App extends Component {
     return ingredients;
   };
 
-  cleanRecipeData = (recipe) => {
-    return {
-      ...recipe,
-      ingredients: this.getIngredients(recipe),
-      isFav: false,
-    };
-  };
-
   grabRecipes = (searchTerm) => {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`)
       .then((res) => res.json())
       .then((res) => {
-        const cleanRecipes = res.meals.map(this.cleanRecipeData);
-
+        const cleanRecipes = res.meals.map(this.cleanRecipe);
         this.setState({ recipes: cleanRecipes });
       })
       .catch((err) => {
