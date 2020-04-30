@@ -12,6 +12,7 @@ class CreateRecipe extends Component {
     youtube: "",
     category: "",
     area: "",
+    thumbnail: "",
   };
 
   state = {
@@ -36,6 +37,7 @@ class CreateRecipe extends Component {
     const cleanTags = formValues.tags.split(",");
     formValues.ingredients = cleanIngredients;
     formValues.tags = cleanTags;
+    formValues.isFav = true;
     return formValues;
   };
 
@@ -62,6 +64,7 @@ class CreateRecipe extends Component {
       category,
       youtube,
       source,
+      thumbnail,
     } = this.state.recipe;
 
     return (
@@ -120,6 +123,13 @@ class CreateRecipe extends Component {
               value={instructions}
               onChange={this.handleChange}
             ></textarea>
+            <input
+              type="text"
+              name="thumbnail"
+              placeholder="The href for the recipe image"
+              value={thumbnail}
+              onChange={this.handleChange}
+            />
             <input
               type="text"
               name="tags"
