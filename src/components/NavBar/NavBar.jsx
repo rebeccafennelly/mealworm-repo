@@ -7,7 +7,19 @@ import SearchBar from "../SearchBar";
 
 class NavBar extends Component {
   render() {
-    const { updateSearchText } = this.props;
+    const { updateSearchText, signIn, user } = this.props;
+
+    const cookbookLinkJsx = user ? (
+      <span className={styles.faStyles}>
+        <Link to="cookbook">
+          <FontAwesomeIcon icon="book-open" />
+        </Link>
+      </span>
+    ) : (
+      <span className={styles.faStyles}>
+        <FontAwesomeIcon icon={["fab", "google"]} onClick={signIn} />
+      </span>
+    );
 
     return (
       <nav className={styles.navFlex}>
@@ -27,11 +39,7 @@ class NavBar extends Component {
               <FontAwesomeIcon icon="plus-square" />
             </Link>
           </span>
-          <span className={styles.faStyles}>
-            <Link to="cookbook">
-              <FontAwesomeIcon icon="book-open" />
-            </Link>
-          </span>
+          {cookbookLinkJsx}
         </div>
       </nav>
     );

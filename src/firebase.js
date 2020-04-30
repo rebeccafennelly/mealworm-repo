@@ -3,7 +3,7 @@ import "firebase/firestore";
 import "firebase/storage";
 import "firebase/auth";
 
-const firebaseApp = firebase.initializeApp({
+firebase.initializeApp({
     apiKey: "AIzaSyBGN81qNYlgtbPqTZ06A8k4-uT2BMndVBc",
     authDomain: "mealworm-14b23.firebaseapp.com",
     databaseURL: "https://mealworm-14b23.firebaseio.com",
@@ -15,5 +15,7 @@ const firebaseApp = firebase.initializeApp({
 });
 
 export const firestore = firebase.firestore();
+
+export const provider = new firebase.auth.GoogleAuthProvider();
 
 export default firebase;

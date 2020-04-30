@@ -1,7 +1,7 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import { faHeart as faOpenHeart } from "@fortawesome/free-regular-svg-icons";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faYoutube, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import {
     faSearch,
     faArrowRight,
@@ -19,5 +19,6 @@ export default library.add(
     faGlobe,
     faBookOpen,
     faYoutube,
-    faPlusSquare
+    faPlusSquare,
+    faGoogle
 );

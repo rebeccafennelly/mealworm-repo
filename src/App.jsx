@@ -1,14 +1,20 @@
 import React, { Component } from "react";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
+import Routes from "./containers/Routes/Routes";
+import firebase, { provider } from "./firebase";
 
 import library from "./data/fa-library";
-import Routes from "./containers/Routes/Routes";
 
 class App extends Component {
   state = {
     recipes: [],
+    user: null,
   };
+
+  componentDidMount() {
+    this.getUser();
+  }
 
   cleanRecipe = (recipe) => {
     const cleanedRecipe = {
@@ -50,11 +56,31 @@ class App extends Component {
       });
   };
 
+  signIn = () => {
+    firebase.auth().signInWithRedirect(provider);
+  };
+
+  getUser = () => {
+    firebase
+      .auth()
+      .getRedirectResult()
+      .then((result) => {
+        this.setState({ user: result.user });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <>
         <section className={styles.nav}>
-          <NavBar updateSearchText={this.grabRecipes} />
+          <NavBar
+            updateSearchText={this.grabRecipes}
+            user={this.state.user}
+            signIn={this.signIn}
+          />
         </section>
         <section className={styles.content}>
           <Routes recipes={this.state.recipes} />
