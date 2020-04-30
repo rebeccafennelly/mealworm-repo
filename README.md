@@ -1,22 +1,16 @@
-# CODE ALONG NOTES
+# CHALLENGE NOTES
 
-Add authentication the MealWorm app so that users can login with their google account and see their own personal cookbook
+## React sandbox repo
 
-## STEPS
+Add the capability for a user to sign in and sing out with google to your react sandbox repo
 
-- Go to your MealWorm project in the firebase console (This should match the project from the hosting and firestore coaching sessions)
-- On the authentication panel click setup signin method and enable google sign in and then save
-- Follow the docs for configuring web app for google sign in (https://firebase.google.com/docs/auth/web/google-signin)
-- Add provider to src/firebase.js
-- Add the google icon fontawesome into the fa-library and add it into NavBar.jsx
-- Add user state and signIn method into App.jsx
-- Add getUser method to App.jsx and call inside a componentDidMount
-- Pass user and signIn into NavBar
-  - conditionally render either the google icon or the book icon depending on whether a user object is truthy
-  - Add signIn method from props onto the google span onClick
+- You do not have to mimic the conditional rendering in MealWorm (where either the book or google icon are shown)
+- As long as you can see the user data in your console/react devtools that is okay
+- Add the logic to sing out after (This is not something we covered in the code along and will require you to read the firebase docs)
 
-When completed you should be able to login then see the google icon change to a book (after a few seconds) and the user state being populated (in react devtools in browser). Each time you refresh the page the user will be lost.
+### Extension
 
-## Challenge branch
+GET CREATIVE!
 
-authentication-challenge
+- See what information is returned in the user object from firebase after login
+- Can any of this be made useful to the user?
