@@ -23,6 +23,11 @@ class NavBar extends Component {
             updateSearchText={updateSearchText}
           />
           <span className={styles.faStyles}>
+            <Link to="create">
+              <FontAwesomeIcon icon="plus-square" />
+            </Link>
+          </span>
+          <span className={styles.faStyles}>
             <Link to="cookbook">
               <FontAwesomeIcon icon="book-open" />
             </Link>

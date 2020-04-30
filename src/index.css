@@ -20,3 +20,7 @@ a {
 a:visited {
   color: inherit;
 }
+
+a:focus {
+  outline: none;
+}
