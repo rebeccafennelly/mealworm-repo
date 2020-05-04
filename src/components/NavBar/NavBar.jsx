@@ -37,7 +37,6 @@ class NavBar extends Component {
             placeholder="Search for recipes..."
             updateSearchText={updateSearchText}
           />
-          {this.getSignInOutJsx()}
           <span className={`${styles.faStyles} ${disabledClass}`}>
             <Link to="create">
               <FontAwesomeIcon icon="plus-square" />
@@ -48,6 +47,7 @@ class NavBar extends Component {
               <FontAwesomeIcon icon="book-open" />
             </Link>
           </span>
+          {this.getSignInOutJsx()}
         </div>
       </nav>
     );
