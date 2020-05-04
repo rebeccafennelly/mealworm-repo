@@ -60,16 +60,26 @@ class App extends Component {
     firebase.auth().signInWithRedirect(provider);
   };
 
-  getUser = () => {
+  signOut = () => {
     firebase
       .auth()
-      .getRedirectResult()
-      .then((result) => {
-        this.setState({ user: result.user });
+      .signOut()
+      .then(() => {
+        this.setState({ user: null });
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  getUser = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      } else {
+        this.setState({ user: null });
+      }
+    });
   };
 
   render() {
@@ -80,6 +90,7 @@ class App extends Component {
             updateSearchText={this.grabRecipes}
             user={this.state.user}
             signIn={this.signIn}
+            signOut={this.signOut}
           />
         </section>
         <section className={styles.content}>

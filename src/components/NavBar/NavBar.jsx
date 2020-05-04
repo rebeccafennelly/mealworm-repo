@@ -6,40 +6,48 @@ import { Link } from "@reach/router";
 import SearchBar from "../SearchBar";
 
 class NavBar extends Component {
-  render() {
-    const { updateSearchText, signIn, user } = this.props;
+  getSignInOutJsx = () => {
+    const { signIn, signOut, user } = this.props;
 
-    const cookbookLinkJsx = user ? (
+    return user ? (
       <span className={styles.faStyles}>
-        <Link to="cookbook">
-          <FontAwesomeIcon icon="book-open" />
-        </Link>
+        <FontAwesomeIcon icon={"sign-out-alt"} onClick={signOut} />
       </span>
     ) : (
       <span className={styles.faStyles}>
         <FontAwesomeIcon icon={["fab", "google"]} onClick={signIn} />
       </span>
     );
+  };
+
+  render() {
+    const { updateSearchText, user } = this.props;
+    const disabledClass = user ? "" : styles.faStylesDisabled;
 
     return (
       <nav className={styles.navFlex}>
-        <Link to="/">
-          <div className={styles.navFlex}>
+        <div className={styles.navFlex}>
+          <Link to="/">
             <img src={logo} alt="FoodWorm logo" />
             <h1>MealWorm</h1>
-          </div>
-        </Link>
+          </Link>
+        </div>
         <div className={styles.searchPanel}>
           <SearchBar
             placeholder="Search for recipes..."
             updateSearchText={updateSearchText}
           />
-          <span className={styles.faStyles}>
+          {this.getSignInOutJsx()}
+          <span className={`${styles.faStyles} ${disabledClass}`}>
             <Link to="create">
               <FontAwesomeIcon icon="plus-square" />
             </Link>
           </span>
-          {cookbookLinkJsx}
+          <span className={`${styles.faStyles} ${disabledClass}`}>
+            <Link to="cookbook">
+              <FontAwesomeIcon icon="book-open" />
+            </Link>
+          </span>
         </div>
       </nav>
     );

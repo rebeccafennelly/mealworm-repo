@@ -7,14 +7,7 @@ nav {
   padding: 0 $base-spacing * 4;
   border-bottom: $primary-border;
   color: $primary-color;
-
-  a {
-    color: $primary-color;
-
-    &:visited {
-      color: $primary-color;
-    }
-  }
+  font-size: 1rem;
 
   div {
     img {
@@ -26,26 +19,35 @@ nav {
       display: none;
     }
 
-    &.searchPanel {
-      font-size: 1.5em;
-      display: flex;
+    .faStyles {
+      margin-left: $base-spacing * 4;
 
-      .faStyles {
-        margin-left: $base-spacing * 4;
+      &:hover {
+        cursor: pointer;
 
-        &:hover {
-          cursor: pointer;
-
-          * {
-            color: $secondary-color;
-          }
+        * {
+          color: $secondary-color;
         }
       }
+    }
 
-      .faStylesDisabled {
-        margin-left: $base-spacing * 4;
-        color: $secondary-text;
+    .faStyles.faStylesDisabled {
+      margin-left: $base-spacing * 4;
+      color: $secondary-text;
+
+      &:hover {
+        cursor: pointer;
+
+        * {
+          color: $secondary-text;
+        }
       }
+    }
+
+    &.searchPanel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
@@ -60,19 +62,15 @@ nav {
 @media only screen and (min-width: 768px) {
   nav {
     height: $NavBar-height;
+    font-size: 1.75rem;
 
     div {
-      &.searchPanel {
-        font-size: 2em;
-      }
-
       img {
         height: 50px;
       }
 
       h1 {
         display: unset;
-        font-size: 1.75em;
       }
     }
   }

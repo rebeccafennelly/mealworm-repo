@@ -15,6 +15,10 @@ body {
 
 a {
   text-decoration: none;
+  vertical-align: top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a:visited {

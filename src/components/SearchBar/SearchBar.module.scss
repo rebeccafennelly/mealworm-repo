@@ -1,12 +1,15 @@
 ﻿@import "../../variables.scss";
 
 .search {
+  display: flex;
+  height: 100%;
+
   input {
-    height: 100%;
+    min-height: 100%;
     width: 100px;
     vertical-align: top;
     margin-right: $base-spacing * 2;
-    font-size: 15px;
+    font-size: 12px;
     // padding-left: $base-spacing;
     border: none;
     border-bottom: $primary-border;
@@ -24,6 +27,7 @@
   }
 
   .fa {
+    font-size: 1rem;
     &:hover {
       cursor: pointer;
       color: $secondary-color;
@@ -36,6 +40,9 @@
     input {
       width: unset;
       font-size: 20px;
+    }
+    .fa {
+      font-size: 1.75rem;
     }
   }
 }
