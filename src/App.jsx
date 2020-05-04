@@ -94,7 +94,7 @@ class App extends Component {
           />
         </section>
         <section className={styles.content}>
-          <Routes recipes={this.state.recipes} />
+          <Routes recipes={this.state.recipes} user={this.state.user} />
         </section>
       </>
     );

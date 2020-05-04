@@ -7,6 +7,7 @@ import Cookbook from "../Cookbook";
 import CreateRecipe from "../CreateRecipe";
 
 import NotFound from "../../components/NotFound";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 class Routes extends Component {
   addToCookbook = (recipe) => {
@@ -19,7 +20,7 @@ class Routes extends Component {
   };
 
   render() {
-    const { recipes } = this.props;
+    const { recipes, user } = this.props;
     return (
       <Router>
         <Dashboard
@@ -27,8 +28,10 @@ class Routes extends Component {
           recipes={recipes}
           addToCookbook={this.addToCookbook}
         />
-        <Cookbook path="cookbook" />
-        <CreateRecipe path="create" addToCookbook={this.addToCookbook} />
+        <PrivateRoutes path="/" user={user}>
+          <Cookbook path="cookbook" />
+          <CreateRecipe path="create" addToCookbook={this.addToCookbook} />
+        </PrivateRoutes>
         <NotFound default />
       </Router>
     );
