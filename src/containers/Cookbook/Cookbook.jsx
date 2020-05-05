@@ -19,16 +19,19 @@ class Cookbook extends Component {
       .collection("recipes")
       .get()
       .then((querySnapshot) => {
-        const favourites = querySnapshot.docs.map((doc) => doc.data());
+        const favourites = querySnapshot.docs
+          .filter((doc) => doc.data().uid === this.props.user.uid)
+          .map((doc) => doc.data());
         this.setState({ favourites });
       })
       .catch((err) => console.log(err));
   };
 
   removeFromCookbook = (recipe) => {
+    console.log(recipe.id + this.props.user.uid);
     firestore
       .collection("recipes")
-      .doc(recipe.id)
+      .doc(recipe.id + this.props.user.uid)
       .delete()
       .then(this.setCookbookState)
       .catch((err) => console.log(err));

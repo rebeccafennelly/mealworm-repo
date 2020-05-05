@@ -6,16 +6,22 @@ import { firestore } from "../../firebase";
 
 class DashBoard extends Component {
   toggleFav = (recipe) => {
-    recipe.isFav = !recipe.isFav;
-    recipe.isFav
-      ? this.props.addToCookbook(recipe)
-      : this.removeFromCookbook(recipe);
+    if (this.props.user) {
+      recipe.isFav = !recipe.isFav;
+      recipe.isFav
+        ? this.props.addToCookbook(recipe)
+        : this.removeFromCookbook(recipe);
+    } else {
+      alert(
+        "You must be logged in to edit your cookbook. Please click the google icon to sign in with your gmail account."
+      );
+    }
   };
 
   removeFromCookbook = (recipe) => {
     firestore
       .collection("recipes")
-      .doc(recipe.id)
+      .doc(recipe.id + this.props.user.uid)
       .delete()
       .then(this.setCookbookState)
       .catch((err) => console.log(err));

@@ -13,10 +13,8 @@ class Routes extends Component {
   addToCookbook = (recipe) => {
     firestore
       .collection("recipes")
-      .doc(recipe.id)
-      .set(recipe)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .doc(recipe.id + this.props.user.uid)
+      .set({ ...recipe, uid: this.props.user.uid });
   };
 
   render() {
@@ -27,9 +25,10 @@ class Routes extends Component {
           path="/"
           recipes={recipes}
           addToCookbook={this.addToCookbook}
+          user={user}
         />
         <PrivateRoutes path="/" user={user}>
-          <Cookbook path="cookbook" />
+          <Cookbook path="cookbook" user={user} />
           <CreateRecipe path="create" addToCookbook={this.addToCookbook} />
         </PrivateRoutes>
         <NotFound default />
