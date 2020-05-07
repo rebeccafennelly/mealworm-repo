@@ -4,10 +4,11 @@ import logo from "../../assets/plate-secondary.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@reach/router";
 import SearchBar from "../SearchBar";
+import { UserContext } from "../../context/userContext";
 
 class NavBar extends Component {
-  getSignInOutJsx = () => {
-    const { signIn, signOut, user } = this.props;
+  getSignInOutJsx = (userContext) => {
+    const { signIn, signOut, user } = userContext;
 
     return user ? (
       <span className={styles.faStyles}>
@@ -21,8 +22,8 @@ class NavBar extends Component {
   };
 
   render() {
-    const { updateSearchText, user } = this.props;
-    const disabledClass = user ? "" : styles.faStylesDisabled;
+    const { updateSearchText } = this.props;
+    const disabledClass = (user) => (user ? "" : styles.faStylesDisabled);
 
     return (
       <nav className={styles.navFlex}>
@@ -37,21 +38,27 @@ class NavBar extends Component {
             placeholder="Search for recipes..."
             updateSearchText={updateSearchText}
           />
-          <span className={`${styles.faStyles} ${disabledClass}`}>
+          <span
+            className={`${styles.faStyles} ${disabledClass(this.context.user)}`}
+          >
             <Link to="create">
               <FontAwesomeIcon icon="plus-square" />
             </Link>
           </span>
-          <span className={`${styles.faStyles} ${disabledClass}`}>
+          <span
+            className={`${styles.faStyles} ${disabledClass(this.context.user)}`}
+          >
             <Link to="cookbook">
               <FontAwesomeIcon icon="book-open" />
             </Link>
           </span>
-          {this.getSignInOutJsx()}
+          {this.getSignInOutJsx(this.context)}
         </div>
       </nav>
     );
   }
 }
+
+NavBar.contextType = UserContext;
 
 export default NavBar;

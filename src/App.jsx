@@ -2,19 +2,15 @@ import React, { Component } from "react";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
 import Routes from "./containers/Routes/Routes";
-import firebase, { provider } from "./firebase";
 
 import library from "./data/fa-library";
+import { UserProvider } from "./context/userContext";
+import { CrudProvider } from "./context/crudContext";
 
 class App extends Component {
   state = {
     recipes: [],
-    user: null,
   };
-
-  componentDidMount() {
-    this.getUser();
-  }
 
   cleanRecipe = (recipe) => {
     const cleanedRecipe = {
@@ -56,47 +52,18 @@ class App extends Component {
       });
   };
 
-  signIn = () => {
-    firebase.auth().signInWithRedirect(provider);
-  };
-
-  signOut = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        this.setState({ user: null });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  getUser = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ user });
-      } else {
-        this.setState({ user: null });
-      }
-    });
-  };
-
   render() {
     return (
-      <>
+      <UserProvider>
         <section className={styles.nav}>
-          <NavBar
-            updateSearchText={this.grabRecipes}
-            user={this.state.user}
-            signIn={this.signIn}
-            signOut={this.signOut}
-          />
+          <NavBar updateSearchText={this.grabRecipes} />
         </section>
         <section className={styles.content}>
-          <Routes recipes={this.state.recipes} user={this.state.user} />
+          <CrudProvider>
+            <Routes recipes={this.state.recipes} />
+          </CrudProvider>
         </section>
-      </>
+      </UserProvider>
     );
   }
 }

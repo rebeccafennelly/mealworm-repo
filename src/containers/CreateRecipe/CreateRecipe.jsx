@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./CreateRecipe.module.scss";
+import { CrudContext } from "../../context/crudContext";
 
 class CreateRecipe extends Component {
   emptyRecipe = {
@@ -27,7 +28,7 @@ class CreateRecipe extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const cleanedRecipe = this.cleanFormValues(this.state.recipe);
-    this.props.addToCookbook(cleanedRecipe);
+    this.context.addToCookbook(cleanedRecipe);
     alert("Recipe added");
     this.clearForm();
   };
@@ -157,5 +158,7 @@ class CreateRecipe extends Component {
     );
   }
 }
+
+CreateRecipe.contextType = CrudContext;
 
 export default CreateRecipe;

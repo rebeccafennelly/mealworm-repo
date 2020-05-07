@@ -13,7 +13,7 @@ class Card extends Component {
   };
 
   render() {
-    const { recipe, toggleFav } = this.props;
+    const { recipe } = this.props;
     const flipStyles = this.state.isFaceDown ? styles.faceDown : "";
 
     return (
@@ -25,7 +25,7 @@ class Card extends Component {
           <CardFront recipe={recipe} />
         </div>
         <div className={styles.back}>
-          <CardBack recipe={recipe} toggleFav={toggleFav} />
+          <CardBack recipe={recipe} />
         </div>
       </section>
     );

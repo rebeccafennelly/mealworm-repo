@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./CardBack.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import List from "../List";
+import { CrudContext } from "../../context/crudContext";
 
 class CardBack extends Component {
   state = {
@@ -15,7 +16,7 @@ class CardBack extends Component {
 
   toggleFav = (e) => {
     e.stopPropagation();
-    this.props.toggleFav(this.props.recipe);
+    this.context.toggleFav(this.props.recipe);
     this.setState({ isFav: !this.state.isFav });
   };
 
@@ -40,5 +41,7 @@ class CardBack extends Component {
     );
   }
 }
+
+CardBack.contextType = CrudContext;
 
 export default CardBack;
