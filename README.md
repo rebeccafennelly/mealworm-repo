@@ -1,20 +1,24 @@
 # CODE ALONG NOTES
 
-Edit CRUD functionality in MealWorm so it is user specific rather than all users adding and reading from the same cookbook
+Add context into MealWorm and move all logic realted to authentication and crud into their own respective context files then consume in the relevant components
 
 ## STEPS
 
-- Edit addToCookbook method in Routes.jsx so that:
-  - The docId becomes recipe.id + user.uid
-  - The saved recipe objct also includes a property of uid with the props.user.uid as the value
-- Edit the Dashboard.jsx so that:
-  - It takes in a user object as props from Routes.jsx
-  - Edit the toggleFav method so if no user is passed in as props the user gets an alert to login else they can perform the CRUD operations as intended
-- Edit the Cookbook.jsx so that
-  - It takes in the user object as props from Routes.jsx
-  - The setCookbookState method filters the querySnapshot before the map to check doc.data(),uid matches the user object uid
-  - The removeFromCookbook method uses recipe.id + props.user.uid as the doc id
+- Create a src/context directory with userContext.js and crudContext.js inside
+
+### User Context
+
+- In userContext.js create context and UserProvider class.
+- Move all methods related to auth from App.jsx into userContext.js UserProvider class, remove user from App state and anywhere it is passed into children
+- In the UserProvider state add the user, signIn and signOut methods, then pass this as the value for the rendered UserProvider element
+- Wrap the UserProvider round the content in App.jsx render method
+- Add contextType property to NavBar, Cookbook and Dashboard
+- Replace any reference to signIn/Out methods or user object from props with this.context. ...
+
+### CRUD context
+
+-
 
 ## Challenge branch
 
-authenticated-crud-challenge
+context-challenge
