@@ -1,6 +1,7 @@
 ﻿import React, { Component } from "react";
 import styles from "./SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { RecipeContext } from "../../context/recipeContext";
 
 class SearchBar extends Component {
   state = {
@@ -12,13 +13,13 @@ class SearchBar extends Component {
   };
 
   render() {
-    const { placeholder, updateSearchText } = this.props;
+    const { placeholder } = this.props;
 
     const input = this.state.isOpen ? (
       <input
         type="text"
         placeholder={placeholder}
-        onInput={(e) => updateSearchText(e.target.value)}
+        onInput={(e) => this.context.grabRecipes(e.target.value)}
         autoFocus={true}
       />
     ) : null;
@@ -33,5 +34,7 @@ class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.contextType = RecipeContext;
 
 export default SearchBar;

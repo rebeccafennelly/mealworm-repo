@@ -35,9 +35,8 @@ export class CrudProvider extends Component {
             .where("uid", "==", this.context.user.uid);
 
         query.get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => doc.ref.delete());
-            this.setCookbookState()
-        });
+            querySnapshot.forEach((doc) => doc.ref.delete())
+        }).then(this.setCookbookState);
     };
 
 

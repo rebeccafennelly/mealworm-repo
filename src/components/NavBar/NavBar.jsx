@@ -7,8 +7,8 @@ import SearchBar from "../SearchBar";
 import { UserContext } from "../../context/userContext";
 
 class NavBar extends Component {
-  getSignInOutJsx = (userContext) => {
-    const { signIn, signOut, user } = userContext;
+  getSignInOutJsx = () => {
+    const { signIn, signOut, user } = this.context;
 
     return user ? (
       <span className={styles.faStyles}>
@@ -22,8 +22,7 @@ class NavBar extends Component {
   };
 
   render() {
-    const { updateSearchText } = this.props;
-    const disabledClass = (user) => (user ? "" : styles.faStylesDisabled);
+    const disabledClass = this.context.user ? "" : styles.faStylesDisabled;
 
     return (
       <nav className={styles.navFlex}>
@@ -34,25 +33,18 @@ class NavBar extends Component {
           </Link>
         </div>
         <div className={styles.searchPanel}>
-          <SearchBar
-            placeholder="Search for recipes..."
-            updateSearchText={updateSearchText}
-          />
-          <span
-            className={`${styles.faStyles} ${disabledClass(this.context.user)}`}
-          >
+          <SearchBar placeholder="Search for recipes..." />
+          <span className={`${styles.faStyles} ${disabledClass}`}>
             <Link to="create">
               <FontAwesomeIcon icon="plus-square" />
             </Link>
           </span>
-          <span
-            className={`${styles.faStyles} ${disabledClass(this.context.user)}`}
-          >
+          <span className={`${styles.faStyles} ${disabledClass}`}>
             <Link to="cookbook">
               <FontAwesomeIcon icon="book-open" />
             </Link>
           </span>
-          {this.getSignInOutJsx(this.context)}
+          {this.getSignInOutJsx()}
         </div>
       </nav>
     );

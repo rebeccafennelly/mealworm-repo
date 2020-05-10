@@ -11,10 +11,9 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 class Routes extends Component {
   render() {
-    const { recipes } = this.props;
     return (
       <Router>
-        <Dashboard path="/" recipes={recipes} />
+        <Dashboard path="/" />
         <PrivateRoutes path="/">
           <Cookbook path="cookbook" />
           <CreateRecipe path="create" />
