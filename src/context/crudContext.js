@@ -65,7 +65,7 @@ export class CrudProvider extends Component {
     };
 
     componentDidUpdate() {
-        if (!this.state.content) {
+        if (!this.state.content && this.context.user) {
             this.setCookbookState();
         }
     }
