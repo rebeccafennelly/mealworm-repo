@@ -10,9 +10,7 @@ export class CrudProvider extends Component {
     setCookbookState = () => {
             fetch(`${this.url}/favourites/${this.context.user.uid}`)
             .then(response => response.json())
-            .then(({
-                recipes
-            }) => {
+            .then(({ recipes }) => {
                 const favourites = recipes.map(recipe => ({
                     ...recipe,
                     isFav: true

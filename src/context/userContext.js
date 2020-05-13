@@ -32,7 +32,7 @@ export class UserProvider extends Component {
     };
 
     state = {
-        user: null,
+        user: {uid: null},
         signIn: this.signIn,
         signOut: this.signOut
     }

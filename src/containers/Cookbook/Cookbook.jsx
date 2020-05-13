@@ -5,6 +5,7 @@ import CardList from "../../components/CardList/CardList";
 import { CrudContext } from "../../context/crudContext";
 
 class Cookbook extends Component {
+
   render() {
     const contentJsx = this.context.favourites.length ? (
       <CardList recipes={this.context.favourites} />
