@@ -36,7 +36,7 @@ To move onto the desired branch run
 git checkout *desired-branch-name*
 ```
 
-Steps for code along and spec.s for challenges are found in the README.md of the appropriate branch
+Steps for code along and specs for challenges are found in the README.md of the appropriate branch
 
 ### 1. Create a React app (run in seperate react-sandbox repo and take time to discuss file structure, scripts etc.)
 
@@ -70,17 +70,17 @@ Steps for code along and spec.s for challenges are found in the README.md of the
 - state-code-along
 - state-challenge
 
-### 8. SPA's adrouting in react (reach-router). Branches:
+### 8. SPA's and routing in react (reach-router). Branches:
 
 - routing-code-along
 - routing-challenge
 
-### 9. Calling external API's in React and sotring the returned data in state. Branches:
+### 9. Calling external API's in React and sorting the returned data in state. Branches:
 
 - api-call-code-along
 - api-call-challenge
 
-### 10. Impleenting unit testing in React with Jest & Enzyme. Branches:
+### 10. Implementing unit testing in React with Jest & Enzyme. Branches:
 
 - unit-testing-code-along
 - unit-testing-challenge
@@ -95,7 +95,7 @@ Steps for code along and spec.s for challenges are found in the README.md of the
 - firestore-code-along
 - firestore-challenge
 
-### 13. Adding authentication using Firebase authentication. Branches:
+### 13. Adding authentication using Firebase Authentication. Branches:
 
 - authentication-code-along
 - authenticaion-challenge
@@ -113,7 +113,7 @@ Steps for code along and spec.s for challenges are found in the README.md of the
 - context-code-along
 - context-challenge
 
-### 17. Integration with Node JS API. Branches:
+### 17. Integration with Node.js API. Branches:
 
 - node-api-code-along
 - node-api-challenge
